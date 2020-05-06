@@ -7,7 +7,13 @@ class Profile
   end
 
   def profile
-    "#{@name}, born in #{(Time.new.year - @age)}: #{@bio}"
+    "#{@name}, born in #{send(:birth_year)}: #{@bio}"
+
+  end
+
+  private
+  def birth_year
+    Time.new.year - @age
   end
 
 end
